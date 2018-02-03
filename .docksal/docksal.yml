@@ -27,6 +27,14 @@ services:
     volumes:
       - ${PROJECT_ROOT}/.docksal/etc/drush:/etc/drush:ro
 
+  # Browser
+  browser:
+    hostname: browser
+    image: selenium/standalone-chrome-debug
+    dns:
+      - ${DOCKSAL_DNS1}
+      - ${DOCKSAL_DNS2}
+
   # Fake email
   mail:
     hostname: mail

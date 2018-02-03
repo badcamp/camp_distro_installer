@@ -20,8 +20,9 @@ set -e
 #   $DOCKER_RUNNING - (string) "true" or "false"
 
 params=''
-path='docroot/profiles/contrib/camp'
+path='docroot/profiles/custom/camp'
 profile=docksal
+file=behat.yml
 for i in "$@"; do
 	case "$i" in
 	    --profile=*)
@@ -30,13 +31,17 @@ for i in "$@"; do
 		--path=*)
 			path="${i#*=}"
 			;;
+		--file=*)
+			file="${i#*=}"
+			;;
 		*)
 			params="$params$i "
 			;;
 	esac;
 done
 
-behat_yml_path="${PROJECT_ROOT}/${path}/behat.yml"
+behat_yml_path="${PROJECT_ROOT}/${path}/${file}"
+
 if [[ ! -f "${behat_yml_path}" ]]; then
 	echo "Could not find ${behat_yml_path}"
 	exit 1
@@ -45,4 +50,4 @@ fi
 cd ${PROJECT_ROOT}
 
 # Launch Behat tests
-cd $path && /var/www/bin/behat -p $profile $params
+cd $path && /var/www/bin/behat --config ${behat_yml_path} -p ${profile} ${params}
