@@ -20,7 +20,7 @@ set -e
 #   $DOCKER_RUNNING - (string) "true" or "false"
 
 params=''
-path='docroot/profiles/custom/camp'
+path='docroot/profiles/contrib/camp'
 profile=docksal
 file=behat.yml
 for i in "$@"; do
