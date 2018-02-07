@@ -21,7 +21,7 @@ set -e
 
 params=''
 path='docroot/profiles/contrib/camp'
-profile=docksal
+profile=default
 file=behat.yml
 for i in "$@"; do
 	case "$i" in
