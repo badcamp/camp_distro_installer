@@ -49,7 +49,9 @@ site_install ()
 composer_install ()
 {
   cd $PROJECT_ROOT
+  rm `which drush`
   composer global require hirak/prestissimo:^0.3
+  composer global require drupal/drupal
   composer install --ansi
 }
 
