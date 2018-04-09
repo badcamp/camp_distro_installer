@@ -40,18 +40,23 @@ site_install ()
         rm -rf ${SITEDIR_PATH}/settings.local.php
     fi
 
+    #cp ${PROJECT_ROOT}/.docksal/etc/config/* ${SITEDIR_PATH}/
     cp ${SITEDIR_PATH}/default.settings.php ${SITEDIR_PATH}/settings.php
-	# We disable email sending here so site-install does not return an error
-	PHP_OPTIONS="-d sendmail_path=`which true`" drush site-install camp -y --site-name='Camp Site' --db-url="mysql://user:user@db/default?sslmode=disable"
+    # We disable email sending here so site-install does not return an error
+    PHP_OPTIONS="-d sendmail_path=`which true`" drush site-install camp -y --site-name='Camp Site' --db-url="mysql://user:user@db/default?sslmode=disable"
 }
 
 # Composer Install
 composer_install ()
 {
   cd $PROJECT_ROOT
-  rm `which drush`
+  echo 'export PATH="$PATH:/home/docker/.composer/vendor/bin"' >> ~/.bashrc
+  source ~/.bashrc
+  sudo rm -rf `which drush`
   composer global require hirak/prestissimo:^0.3
-  composer global require drupal/drupal
+  composer global require consolidation/cgr
+  cgr drupal/drupal
+  cgr require drush/drush
   composer install --ansi
 }
 
