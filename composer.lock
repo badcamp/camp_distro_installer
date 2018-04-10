@@ -128,12 +128,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/badcamp/camp_distro.git",
-                "reference": "51a2eeb489cef270803fe333b3a69d0d4a8d26d6"
+                "reference": "fe2510a0f466f41395255cacdda0192c842824a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/badcamp/camp_distro/zipball/51a2eeb489cef270803fe333b3a69d0d4a8d26d6",
-                "reference": "51a2eeb489cef270803fe333b3a69d0d4a8d26d6",
+                "url": "https://api.github.com/repos/badcamp/camp_distro/zipball/fe2510a0f466f41395255cacdda0192c842824a1",
+                "reference": "fe2510a0f466f41395255cacdda0192c842824a1",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 }
             ],
             "description": "Easily create a website for a Drupal camp in a short amount of time.",
-            "time": "2018-04-09 19:48:21"
+            "time": "2018-04-10 16:32:17"
         },
         {
             "name": "chi-teck/drupal-code-generator",
